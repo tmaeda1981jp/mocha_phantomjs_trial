@@ -39,7 +39,7 @@ require([
   window.expect = chai.expect;
 
   require([
-    '../test/spec/model.spec'
+    '../test/spec/model'
   ], function(
     model
   ) {
