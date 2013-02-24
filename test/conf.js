@@ -1,4 +1,4 @@
-/*jslint white: true, nomen: true, maxlen: 120, */
+/*jslint white: true, nomen: true, maxlen: 120, browser:true, */
 /*global requirejs:false */
 require.config({
   baseUrl: '../app/',
@@ -28,13 +28,21 @@ require.config({
   }
 });
 require([
-  'jquery', 'underscore', 'backbone',
-  'mocha', 'sinon', 'chai', 'schai'
-], function(
-  $, _, Backbone, 
-  mocha, sinon, chai, 
-  schai, should, expect
-) {
+  'jquery', 'underscore', 'backbone', 'mocha', 'sinon', 'chai', 'schai'
+], function($, _, Backbone, mocha, sinon, chai, schai, model) {
   'use strict';
-  console.log("OK");
+  mocha.ui('bdd');
+  mocha.reporter('html');
+  chai.should();
+  window.expect = chai.expect;
+  require([
+    '../test/spec/model.spec'
+  ], function(model) {
+    if (window.mochaPhantomJS) {
+      window.mochaPhantomJS.run();
+    }
+    else {
+      mocha.run();
+    }
+  });
 });
