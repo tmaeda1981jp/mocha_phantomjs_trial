@@ -27,17 +27,22 @@ require.config({
     }
   }
 });
+
 require([
   'jquery', 'underscore', 'backbone', 'mocha', 'sinon', 'chai', 'schai'
 ], function($, _, Backbone, mocha, sinon, chai, schai, model) {
   'use strict';
+
   mocha.ui('bdd');
   mocha.reporter('html');
   chai.should();
   window.expect = chai.expect;
+
   require([
     '../test/spec/model.spec'
-  ], function(model) {
+  ], function(
+    model
+  ) {
     if (window.mochaPhantomJS) {
       window.mochaPhantomJS.run();
     }

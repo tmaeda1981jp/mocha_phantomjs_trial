@@ -17,6 +17,7 @@ require.config({
     }
   }
 });
+
 require(['jquery', 'underscore', 'backbone', 'model', 'view'], function($, _, Backbone, Counter, View) {
   'use strict';
   $(function() {
