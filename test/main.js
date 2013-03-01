@@ -1,5 +1,5 @@
 /*jslint white: true, nomen: true, maxlen: 120, browser:true, */
-/*global requirejs:false */
+/*global require:false */
 require.config({
   baseUrl: '../app/',
   paths: {
