@@ -39,9 +39,10 @@ require([
   window.expect = chai.expect;
 
   require([
-    '../test/spec/model'
+    '../test/spec/model',
+    '../test/spec/view'
   ], function(
-    model
+    model, view
   ) {
     if (window.mochaPhantomJS) {
       window.mochaPhantomJS.run();
