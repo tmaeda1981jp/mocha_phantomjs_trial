@@ -14,6 +14,8 @@ define(['jquery', '../../app/view', '../../app/model'], function($, View, Model)
 
   describe('incrementボタンをクリック', function() {
     it('#countに表示されている数が1増えること', function() {
+      counter.set('count', 0);
+      counterView.updateCount();
       counterView.$el.find('#inc_btn').trigger('click');
       parseInt(counterView.$el.find('#count').text(), 10).should.equal(1);
     });
