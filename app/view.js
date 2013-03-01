@@ -4,7 +4,8 @@
 define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
   'use strict';
   return Backbone.View.extend({
-    el: 'body',
+    el: '#counter',
+    template: _.template($('#counter_tmp').html()),
     events: {
       'click #inc_btn': 'onClickIncrementButton',
       'click #dec_btn': 'onClickDecrementButton',
@@ -14,6 +15,11 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     initialize: function() {
       _.bindAll(this, 'onClickIncrementButton', 'onClickDecrementButton', 'onClickResetButton', 'updateCount');
       this.listenTo(this.model, 'change:count', this.updateCount);
+    },
+
+    render: function() {
+      this.$el.html(this.template());
+      return this.$el;
     },
 
     onClickIncrementButton: function() {
@@ -29,7 +35,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     },
     
     updateCount: function() {
-      $('#counter').text(this.model.get('count'));
+      $('#count').text(this.model.get('count'));
     }
   });
 });

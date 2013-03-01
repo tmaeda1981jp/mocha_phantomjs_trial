@@ -21,6 +21,6 @@ require.config({
 require(['jquery', 'underscore', 'backbone', 'model', 'view'], function($, _, Backbone, Counter, View) {
   'use strict';
   $(function() {
-    var v = new View({model: new Counter()});
+    new View({model: new Counter()}).render();
   });
 });

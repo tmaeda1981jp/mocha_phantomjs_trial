@@ -9,10 +9,13 @@
     </style>
   </head>
   <body>
-    <input id="inc_btn" type="button" value="increment" />
-    <input id="dec_btn" type="button" value="decrement" />
-    <input id="reset_btn" type="button" value="reset" />
-    <p id="counter">0</p>
+    <div id="counter"></div>
     <script data-main="main" src="lib/require.js"></script>
+    <script type="text/template" id="counter_tmp">
+      <input id="inc_btn" type="button" value="increment" />
+      <input id="dec_btn" type="button" value="decrement" />
+      <input id="reset_btn" type="button" value="reset" />
+      <p id="count">0</p>
+    </script>
   </body>
 </html>
