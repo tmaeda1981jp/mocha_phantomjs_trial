@@ -5,39 +5,41 @@
 'use strict';
 
 define(['../../app/model'], function(Counter) {
-  describe('#increment', function() {
-    it('countが1増えること．', function() {
-      var counter = new Counter(),
-          current = counter.get('count');
-      counter.increment();
-      counter.get('count').should.equal(current + 1);
-    });
-  });
-
-  describe('#decrement', function() {
-    context('countが0の場合', function() {
-      it('0のままであること', function() {
-        var counter = new Counter();
-        counter.decrement();
-        counter.get('count').should.equal(0);
+  describe('model', function() {
+    describe('#increment', function() {
+      it('countが1増えること．', function() {
+        var counter = new Counter(),
+            current = counter.get('count');
+        counter.increment();
+        counter.get('count').should.equal(current + 1);
       });
     });
-    context('countが1以上の場合', function() {
-      it('1減ること', function() {
+
+    describe('#decrement', function() {
+      context('countが0の場合', function() {
+        it('0のままであること', function() {
+          var counter = new Counter();
+          counter.decrement();
+          counter.get('count').should.equal(0);
+        });
+      });
+      context('countが1以上の場合', function() {
+        it('1減ること', function() {
+          var counter = new Counter();
+          counter.set('count', 5);
+          counter.decrement();
+          counter.get('count').should.equal(4);
+        });
+      });
+    });
+
+    describe('#reset', function() {
+      it('countが0になること', function() {
         var counter = new Counter();
         counter.set('count', 5);
-        counter.decrement();
-        counter.get('count').should.equal(4);
+        counter.reset();
+        counter.get('count').should.equal(0);
       });
-    });
-  });
-
-  describe('#reset', function() {
-    it('countが0になること', function() {
-      var counter = new Counter();
-      counter.set('count', 5);
-      counter.reset();
-      counter.get('count').should.equal(0);
     });
   });
 });
