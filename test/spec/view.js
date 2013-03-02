@@ -10,24 +10,20 @@ define(['jquery', '../../app/view', '../../app/model'], function($, View, Model)
     var counterView, counter;
 
     describe('#render', function() {
-      it('incrementボタンが表示されていること', function() {
+      beforeEach(function() {
         counter = new Model();
         counterView = new View({model: counter}).render();
+      });
+      it('incrementボタンが表示されていること', function() {
         counterView.$el.find('#inc_btn').length.should.equal(1);
       });
       it('decrementボタンが表示されていること', function() {
-        counter = new Model();
-        counterView = new View({model: counter}).render();
         counterView.$el.find('#dec_btn').length.should.equal(1);
       });
       it('resetボタンが表示されていること', function() {
-        counter = new Model();
-        counterView = new View({model: counter}).render();
         counterView.$el.find('#reset_btn').length.should.equal(1);
       });
       it('counterの初期値0が表示されていること', function() {
-        counter = new Model();
-        counterView = new View({model: counter}).render();
         parseInt(counterView.$el.find('#count').text(), 10).should.equal(0);
       });
     });
